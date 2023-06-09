@@ -26,13 +26,13 @@ To set up MegaMart locally, follow these steps:
 
   1. Clone the repository:
    ```
-   
    git clone https://github.com/GautamSavsaviya/MegaMart.git
+   
    ```
   2. Change into the project directory:
   ```
-
   cd MegaMart
+  
   ```
   3. Create and activate a virtual environment:
   ```
