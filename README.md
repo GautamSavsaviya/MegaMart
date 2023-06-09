@@ -65,8 +65,8 @@ To set up MegaMart locally, follow these steps:
 
 Before running the project, make sure to configure the following settings:
 
-Database: Update the DATABASES configuration in the settings.py file with your database credentials.
-Environment Variables: Set up any necessary environment variables, such as API keys or secret keys, in a .env file.
+- Database: Update the DATABASES configuration in the settings.py file with your database credentials. 
+- Environment Variables: Set up any necessary environment variables, such as API keys or secret keys, in a .env file.
 
 ## Usage
 
