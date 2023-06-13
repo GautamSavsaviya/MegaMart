@@ -119,6 +119,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Create media folder and managing it
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # Manually added to resolve error to get static files
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
