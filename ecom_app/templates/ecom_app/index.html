@@ -1,0 +1,90 @@
+{% extends 'ecom_app/layout.html' %}
+
+
+{% block title %} MegaMart: Home {% endblock %}
+
+{% block css %}
+.slider .carousel-item img{
+    aspect-ratio: 4/3;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+    background-color: black;
+    color: blue;
+}
+
+.carousel-indicators button.active{
+    background-color: blue;
+}
+
+.carousel-control-prev span,
+.carousel-control-next span{
+    border-radius: 50%;
+}
+{% endblock %}
+
+
+{% block body %}
+{% load static %}
+<!-- Slider Start -->
+<div class="slider">
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+
+            {% for i in range %}
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{i}}"
+                aria-label="Slide 2"></button>
+            {% endfor %}
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="/media/{{product.0.image}}" class="card-img-top" alt="product1">
+                            <div class="card-body">
+                                <h5 class="card-title">{{product.0.product_name}}</h5>
+                                <p class="card-text">{{product.0.description}}</p>
+                                <a href="#" class="btn btn-primary">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% for item in product|slice:"1:" %}
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="/media/{{item.image}}" class="card-img-top" alt="product1">
+                            <div class="card-body">
+                                <h5 class="card-title">{{item.product_name}}</h5>
+                                <p class="card-text">{{item.description}}</p>
+                                <a href="#" class="btn btn-primary">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                
+                    {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    {% endif %}
+
+                    {% endfor %}
+                </div>
+            </div>
+                    
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style="justify-content: flex-start;">
+            <span class="carousel-control-prev-icon" aria-hidden="true" style="position: absolute; left: -50px;"></span>
+            <!-- <span class="visually-hidden">Previous</span> -->
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" style="justify-content: flex-end;">
+            <span class="carousel-control-next-icon" aria-hidden="true" style="position: absolute; right: -50px;"></span>
+            <!-- <span class="visually-hidden">Next</span> -->
+        </button>
+    </div>
+</div>
+<!-- Slider End -->
+{% endblock%}
